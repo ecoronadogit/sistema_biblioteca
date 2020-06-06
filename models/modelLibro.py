@@ -9,7 +9,7 @@ class ModelLibro:
         lista_titulo_editorial = TituloEditorialDB.getAll()
         lista_libros = LibroDB.getAll()
         lista = [
-            (y.id, x.isbn, x.titulo, x.editorial, y.disponible)
+            (y.id_libro, x.isbn, x.titulo, x.editorial, y.disponible)
             for x in lista_titulo_editorial for y in lista_libros
             if x.isbn == y.isbn
         ]
@@ -20,7 +20,7 @@ class ModelLibro:
         lista_titulo_editorial = TituloEditorialDB.getAll()
         lista_libros = LibroDB.getDisponibles()
         lista = [
-            (y.id, x.isbn, x.titulo, x.editorial, y.disponible)
+            (y.id_libro, x.isbn, x.titulo, x.editorial, y.disponible)
             for x in lista_titulo_editorial for y in lista_libros
             if x.isbn == y.isbn
         ]

@@ -2,9 +2,9 @@ class ViewAplicacion:
 
     @staticmethod
     def bienvenida():
-        print('\n-----------------------------------------------------')
-        print('=============== GESTION DE BIBLIOTECA ===============')
-        print('-----------------------------------------------------')
+        print('\n-----------------------------------------------------------')
+        print('================== GESTION DE BIBLIOTECA ===================')
+        print('------------------------------------------------------------')
 
     @staticmethod
     def menu():
@@ -17,6 +17,7 @@ class ViewAplicacion:
         opciones = [m[0].upper() for m in lista_menu_principal]
         for i in lista_menu_principal:
             print(f'[{i[0]}] - {i[1]}')
+        print('-' * 60)
         while True:
             opcion = input('Seleccione una opcion:').upper()
             if opcion not in opciones:        
@@ -26,4 +27,4 @@ class ViewAplicacion:
 
     @staticmethod
     def salida():
-        print('\n*************** Gracias por su visita ***************')     
+        print('\n****************** Gracias por su visita *******************')     

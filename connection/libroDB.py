@@ -36,14 +36,15 @@ class LibroDB:
         return libro
 
     @staticmethod
-    def getDisponibles() -> Libro:
-        libro = None
+    def getDisponibles() -> List[Libro]:
+        lista_libro = []
         with ConexionPG() as cnx:
             cnx.ejecutar_sql('SELECT * FROM LIBRO WHERE DISPONIBLE=1;', False)
             if cnx.cursor.rowcount > 0:
-                item = cnx.cursor.fetchone()
-                libro = Libro(item[0], item[1], item[2])
-        return libro
+                for item in cnx.cursor.fetchall():
+                    libro = Libro(item[0], item[1], item[2])
+                    lista_libro.append(libro)
+        return lista_libro
     
     @staticmethod
     def setDisponible(id:int) -> bool:
